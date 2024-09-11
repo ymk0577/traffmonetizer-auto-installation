@@ -1,5 +1,7 @@
 # traffmonetizer-auto-installation
 The traffmonetizer is an option that allows users to earn money by sharing your traffic.
+Run the Trafficmonetizer program based on the DOCKER environment.
+Fully automatically deploy Docker and install the Trafficmonetizer image.
 
 # Introduction
 
