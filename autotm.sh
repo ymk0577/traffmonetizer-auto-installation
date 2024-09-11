@@ -1,5 +1,5 @@
 #!/bin/bash
-#FROM https://github.com/spiritLHLS/traffmonetizer-one-click-command-installation
+#FROM https://github.com/ymk0577/traffmonetizer-auto-installation
 
 utf8_locale=$(locale -a 2>/dev/null | grep -i -m 1 -E "UTF-8|utf8")
 if [[ -z "$utf8_locale" ]]; then
@@ -12,7 +12,7 @@ else
 fi
 
 # 定义容器名
-NAME='autotm'
+NAME='tm'
 
 # 自定义字体彩色，read 函数，安装依赖函数
 red(){ echo -e "\033[31m\033[01m$1$2\033[0m"; }
@@ -85,7 +85,7 @@ check_virt(){
 
 # 输入 traffmonetizer 的个人 token
 input_token(){
-  [ -z $TMTOKEN ] && reading " Enter your token, something end with =, if you do not find it, open https://traffmonetizer.com/?aff=247346: " TMTOKEN
+  [ -z $TMTOKEN ] && reading " Enter your token, something end with =, if you do not find it, open https://traffmonetizer.com/?aff=1762751: " TMTOKEN
 }
 
 container_build(){
@@ -108,7 +108,7 @@ container_build(){
 
   # 创建容器
   yellow " Create the traffmonetizer container.\n "
-  docker run -d --name $NAME --restart=unless-stopped traffmonetizer/cli_v2:$ARCH start accept --token "$TMTOKEN" >/dev/null 2>&1
+  docker run -d --name $NAME --restart=unless-stopped traffmonetizer/cli_v2:$ARCH start accept --token "$TMTOKEN" --device-name "$DIYNAME">/dev/null 2>&1
 
   # 创建 Towerwatch
   [[ ! $(docker ps -a) =~ watchtower ]] && yellow " Create TowerWatch.\n " && docker run -d --name watchtower --restart=always -p 2095:8080 -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --cleanup >/dev/null 2>&1
@@ -128,10 +128,11 @@ uninstall(){
 }
 
 # 传参
-while getopts "UuT:t:" OPTNAME; do
+while getopts "u:t:n" OPTNAME; do
   case "$OPTNAME" in
-    'U'|'u' ) uninstall;;
-    'T'|'t' ) TMTOKEN=$OPTARG;;
+    u) uninstall;;
+    t) TMTOKEN=$OPTARG;;
+    n) DIYNAME=$OPTARG;;
   esac
 done
 
