@@ -31,7 +31,7 @@ In this command, the parameter after **-t** is changed to your token, and the pa
 
 # Uninstall
 ```
-bash tm.sh -u
+bash autotm.sh -u
 ```
 Uninstall traffmonetizer service.
 
