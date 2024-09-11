@@ -108,7 +108,7 @@ container_build(){
 
   # 创建容器
   yellow " Create the traffmonetizer container.\n "
-  docker run -d --name $NAME --restart=unless-stopped traffmonetizer/cli_v2:$ARCH start accept --token "$TMTOKEN" --device-name "$DIYNAME">/dev/null 2>&1
+  docker run -d --name $NAME --restart=unless-stopped traffmonetizer/cli_v2:$ARCH start accept --token "$TMTOKEN" --device-name "$DIYNAME" >/dev/null 2>&1
 
   # 创建 Towerwatch
   [[ ! $(docker ps -a) =~ watchtower ]] && yellow " Create TowerWatch.\n " && docker run -d --name watchtower --restart=unless-stopped --net=host -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower --cleanup >/dev/null 2>&1
@@ -128,7 +128,7 @@ uninstall(){
 }
 
 # 传参
-while getopts "u:t:n" OPTNAME; do
+while getopts "u:t:n:" OPTNAME; do
   case "$OPTNAME" in
     u) uninstall;;
     t) TMTOKEN=$OPTARG;;
