@@ -23,7 +23,7 @@ Use Watchtower for automatic mirror update without manual update and re-entry of
 
 # Install
 ```
-curl -L https://raw.githubusercontent.com/spiritLHLS/traffmonetizer-one-click-command-installation/main/tm.sh -o tm.sh && chmod +x tm.sh && bash tm.sh -t /RelFc/bWIrxQ1pASg/r5UyNX5LNWuQem2dEKksW2ok=
+curl -L https://raw.githubusercontent.com/ymk0577/traffmonetizer-auto-installation/main/autotm.sh -o autotm.sh && chmod +x autotm.sh && bash autotm.sh -t /RelFc/bWIrxQ1pASg/r5UyNX5LNWuQem2dEKksW2ok=
 ```
 Change to your token at the end of this command.
 
