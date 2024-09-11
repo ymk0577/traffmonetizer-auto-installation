@@ -25,9 +25,9 @@ Use Watchtower for automatic mirror update without manual update and re-entry of
 
 # Install
 ```
-curl -L https://raw.githubusercontent.com/ymk0577/traffmonetizer-auto-installation/main/autotm.sh -o autotm.sh && chmod +x autotm.sh && bash autotm.sh -t /RelFc/bWIrxQ1pASg/r5UyNX5LNWuQem2dEKksW2ok=
+curl -L https://raw.githubusercontent.com/ymk0577/traffmonetizer-auto-installation/main/autotm.sh -o autotm.sh && chmod +x autotm.sh && bash autotm.sh -t /RelFc/bWIrxQ1pASg/r5UyNX5LNWuQem2dEKksW2ok= -n CustomDeviceName
 ```
-Change to your token at the end of this command.
+In this command, the parameter after **-t** is changed to your token, and the parameter after **-n** is customized to your device name.
 
 # Uninstall
 ```
